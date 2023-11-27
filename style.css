@@ -1,0 +1,187 @@
+:root{
+    --Pale-Blue: hsl(243, 100%, 93%);
+    --Grayish-Blue: hsl(229, 7%, 55%);
+    --Dark-Blue: hsl(228, 56%, 26%);
+    --Very-Dark-Blue: hsl(229, 57%, 11%);
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 14px;
+}
+body{
+    font-family: 'Raleway', sans-serif;
+    height: 100vh;
+    background-color: var(--Very-Dark-Blue);
+}
+/* ===========================================*/
+main{
+    margin:0 auto;
+    max-width:1440px;
+    height: 100%;
+    display: flex;
+    gap:20px;
+    justify-content: center;
+    align-items: center;
+    background-image: url(imgs/bg-desktop.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+main section{
+    background-color: var(--Dark-Blue);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+main .left{
+    width:350px;
+    border-top-right-radius: 100px;
+}
+main .left .icons{
+    display: flex;
+    gap:10px;
+    margin-top: 20px;
+}
+main .left .icons a{
+    text-decoration: none;
+    width:50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: var(--Very-Dark-Blue);
+}
+main .left .icons a i {
+    font-size: 1.5rem;
+    color:#6A7ED5;
+}
+/* ---------------------------------------- */
+main .right{
+    width:540px;
+    color: var(--Pale-Blue);
+    position: relative;
+    transform: translateY(22px);
+    /* height: 150px; */
+}
+main .right .fly{
+    width:180px;
+    height: 70px;
+    background-color:white;
+    color:var(--Very-Dark-Blue);
+    font-weight: 700;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-left:auto;
+    margin-top: -80px;
+    margin-bottom: 20px;
+    /* position: absolute; */
+    position: relative;
+}
+main .right .fly::before{
+    content: "";
+    position: absolute;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 30px solid transparent;
+    border-right: 30px solid white;
+    /* border:30px solid red blue green black; */
+    right: 0;
+    bottom: -30px;
+
+}
+main .right .fly span{
+    display: inline-block;
+    text-transform: uppercase;
+    margin-left: 10px;
+    color: var(--Grayish-Blue);
+    font-size: 1rem;
+}
+main .right .size{
+    font-weight: 700;
+}
+
+main .right .bar{
+    width:100%;
+    height: 20px;
+    background-color: var(--Very-Dark-Blue);
+    margin: 10px 0;
+    padding: 2px;
+    border-radius: 10px;
+    position: relative;
+    
+}
+main .right .bar::before{
+    content:"0 GB";
+    position: absolute;
+    bottom: -20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+main .right .bar::after{
+    content: attr(size);
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+main .right .bar .bar-size{
+    display: block;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,163,153,1) 0%, rgba(255,77,151,1) 100%);
+    border-radius: 10px;
+    position: relative;
+}
+main .right .bar .bar-size::after{
+    content: "";
+    width:10px;
+    height: 10px;
+    background-color: var(--Pale-Blue);
+    border-radius: 50%;
+    position: absolute;
+    right: 2px;
+    top:3px;
+}
+/* ****************************************** */
+@media (max-width:776px){
+    
+    main{
+        padding: 50px 20px;
+        background-image: url(imgs/bg-mobile.png);
+        background-size: cover;
+        flex-direction: column;
+        width:100%;
+        height: 100%;
+        position: relative;
+        gap: 10px;
+    }
+    main .right{
+        width:350px;
+        height: 160px;
+        transform: translateY(0);
+        position: relative;
+    }
+    main .right .fly{
+        position: absolute;
+        bottom: -55px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    main .right .fly::before{
+        visibility: hidden;
+    }
+    main .right >span{
+        display: block;
+        text-align: center;
+    }
+    
+}
